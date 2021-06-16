@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%import 'macros.html' as macro %}
+{%block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{%endblock%}
+
+{%block content%}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-primary">"Punctuality is the thief of time."</h2>
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="col-md-12 align-items-center d d-flex justify-content-center">
+            <img src="https://images.unsplash.com/photo-1501676491272-7bbd3e71f7e1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80" alt="" width="100%" height="450px">
+         </div>
+    </div>
+
+    
+</div>
+
+{%endblock%}
