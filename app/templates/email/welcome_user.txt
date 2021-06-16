@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to IbraFits Timer
+
+We have just seen you have signed up for our application and want to welcome you to the family. We hope that from today onwords ,you will be able to manage your time well.
