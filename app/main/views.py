@@ -11,3 +11,10 @@ def index():
     title = 'Home - Welcome to IbraFits Timer'
   
     return render_template('index.html',title = title,current_user=current_user)
+
+@main.route('/timer')
+def timer():
+
+    title = 'Manage your time'
+  
+    return render_template('timer.html',title = title)
