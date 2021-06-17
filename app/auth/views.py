@@ -1,5 +1,5 @@
 from flask import render_template,redirect,url_for, flash,request
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required,current_user
 from . import auth
 from ..models import User
 from .forms import LoginForm,RegistrationForm
@@ -11,7 +11,7 @@ from ..email import mail_message
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data,firstname= form.firstname.data,lastname= form.lastname.data,password = form.password.data)
+        user = User(email = form.email.data, username = form.username.data,first_name= form.firstname.data,last_name= form.lastname.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
 
@@ -19,7 +19,7 @@ def register():
 
         return redirect(url_for('auth.login'))
     title = "New Account"
-    return render_template('auth/register.html',registration_form = form,title=title)
+    return render_template('auth/register.html',registration_form = form,title=title,current_user=current_user)
 
 # Loging in user
 @auth.route('/login',methods=['GET','POST'])
@@ -34,8 +34,8 @@ def login():
         flash('Invalid username or Password')
 
     title = "IbraFits login"
-    return render_template('auth/login.html',login_form = login_form,title=title)
-    
+    return render_template('auth/login.html',login_form = login_form,title=title,current_user=current_user)
+
 # Loging out user
 @auth.route('/logout')
 @login_required
