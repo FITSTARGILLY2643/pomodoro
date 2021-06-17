@@ -7,4 +7,6 @@ from . import main
 @main.route('/')
 def index():
 
-    return render_template('index.html')
+    title = 'Home - Welcome to IbraFits Timer'
+
+    return render_template('index.html',title = title)
